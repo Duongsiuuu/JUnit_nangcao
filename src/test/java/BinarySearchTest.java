@@ -15,6 +15,12 @@ public class BinarySearchTest {
             "'1,3,5,7,9', 4, -1", // Không tìm thấy
             "'1,3,5,7,9', 10, -1", // Không tìm thấy
             "'', 5, -1",  // Mảng rỗng
+            "'', 1, -1", // Mảng rỗng, tìm số bất kỳ
+            "'', -5, -1", // Mảng rỗng, tìm số âm
+            "'5', 0, -1", // Mảng một phần tử, không khớp
+            "'10', 20, -1", // Mảng một phần tử, không khớp
+            "'-3', 3, -1", // Mảng một phần tử âm, không khớp
+            "'100', -100, -1", // Mảng một phần tử dương, không khớp với số âm
             "'5', 5, 0",  // Mảng một phần tử, tìm thấy
             "'5', 3, -1",  // Mảng một phần tử, không tìm thấy
             "'1,2', 2, 1",  // Mảng hai phần tử, tìm thấy phần tử cuối
@@ -25,6 +31,13 @@ public class BinarySearchTest {
             "'1,2,3', 4, -1", // Mảng ba phần tử, không tìm thấy
             "'1,3,5,7,9,11', 6, -1" // Giá trị không có trong mảng chẵn phần tử
     })
+
+    void testEmptyOrSingleElementArray(String arrayStr, int target, int expected) {
+        int[] arr = parseArray(arrayStr);
+        int result = BinarySearch.search(arr, target);
+        assertEquals(expected, result);
+    }
+
     void testBinarySearch(String arrayStr, int target, int expected) {
         int[] arr = parseArray(arrayStr);
         int result = BinarySearch.search(arr, target);
