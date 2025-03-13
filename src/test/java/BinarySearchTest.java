@@ -29,7 +29,17 @@ public class BinarySearchTest {
             "'1,2,3', 2, 1", // Mảng ba phần tử, tìm thấy giữa
             "'1,2,3', 3, 2", // Mảng ba phần tử, tìm thấy cuối
             "'1,2,3', 4, -1", // Mảng ba phần tử, không tìm thấy
-            "'1,3,5,7,9,11', 6, -1" // Giá trị không có trong mảng chẵn phần tử
+            "'1,3,5,7,9,11', 6, -1", // Giá trị không có trong mảng chẵn phần tử
+            "'-10,-5,0,5,10', -5, 1", // Mảng có số âm và dương, tìm thấy số âm
+            "'-10,-5,0,5,10', 5, 3", // Mảng có số âm và dương, tìm thấy số dương
+            "'-10,-5,0,5,10', 0, 2", // Mảng có số âm và dương, tìm thấy số 0
+            "'-10,-5,0,5,10', 15, -1", // Mảng có số âm và dương, không tìm thấy
+            "'10,5,0,-5,-10', 5, -1", // Mảng không sắp xếp, không tìm thấy
+            "'10,5,0,-5,-10', -5, -1", // Mảng không sắp xếp, không tìm thấy
+            "'10,5,0,-5,-10', 0, -1", // Mảng không sắp xếp, không tìm thấy
+            "'-2147483648,0,2147483647', -2147483648, 0", // Giá trị biên, tìm thấy MIN_VALUE
+            "'-2147483648,0,2147483647', 2147483647, 2", // Giá trị biên, tìm thấy MAX_VALUE
+            "'-2147483648,0,2147483647', 1, -1" // Giá trị biên, không tìm thấy
     })
 
     void testEmptyOrSingleElementArray(String arrayStr, int target, int expected) {
